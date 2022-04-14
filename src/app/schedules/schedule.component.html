@@ -1,0 +1,16 @@
+<div>
+    <div class="month">
+        <h1>{{schedule?.month}}</h1>
+    </div>
+    <employee-dropdown></employee-dropdown>
+    <div class="schedule-grid">
+        <p>Monday</p>
+        <p>Tuesday</p>
+        <p>Wednesday</p>
+        <p>Thursday</p>
+        <p>Friday</p>
+        <p>Saturday</p>
+        <p>Sunday</p>
+        <schedule-day *ngFor="let day of schedule?.days" [day]="day" [ngStyle]="{'grid-column-start': day.day===1 ? this.startColumn : 0}"></schedule-day>
+    </div>
+</div>

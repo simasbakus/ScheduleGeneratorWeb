@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'login',
     template: `
-    <div class="center pad-top">
+      <div class="center pad-top">
         <h1>Login</h1>
         <form>
           <div>
@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
           </div>
           <button>Login</button>
         </form>
-    </div>
+      </div>
     `,
     styles: [`
       .center { text-align: center }

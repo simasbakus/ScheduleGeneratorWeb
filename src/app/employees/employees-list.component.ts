@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
+import { IEmployee } from '../models/employee.model';
 import { EmployeesService } from './services/employees.service';
 
 @Component({
     template: `
-    <div>
+    <div class="list">
       <h2>Employees</h2>
-      <div *ngFor="let employee of employees" [routerLink]="['/employees', employee.id]">
-        <h3>{{employee.Name}}</h3>
-        <h3>{{employee.LastName}}</h3>
-        <h3>{{employee.Position}}</h3>
+      <div *ngFor="let employee of employees" [routerLink]="['/employees', employee.id]" class="list-element">
+        <h3>{{employee.name}}</h3>
+        <h3>{{employee.lastName}}</h3>
+        <h3>{{employee.position}}</h3>
       </div>
     </div>
-    `
+    `,
+    styles: [`
+      .list h2 { margin: 15px 0}
+      .list-element { display: flex; border-bottom: black solid 2px; margin: 2px 0; cursor: pointer; width: 40%; }
+      .list-element h3 { padding: 5px; margin: 0 }
+      .list-element:hover { background-color: #bbb }
+    `]
   })
 export class EmployeesListComponent {
-  employees:any[] = []
+  employees:IEmployee[] = []
   
   constructor(private employeesService: EmployeesService) { }
   
