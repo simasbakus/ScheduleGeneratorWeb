@@ -12,7 +12,7 @@ import { SchedulesService } from './services/schedules.service';
           <h2>
             Generated Schedules
           </h2>
-          <div *ngFor="let schedule of schedules" class="schedules-list-element" [routerLink]="['/schedule', schedule.month, schedule.employeeId]">
+          <div *ngFor="let schedule of schedules" class="schedules-list-element" [routerLink]="['/schedule', schedule.month]">
             <h3>Schedule for {{schedule.month}}</h3>
           </div>
         </div>

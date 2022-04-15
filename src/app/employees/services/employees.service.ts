@@ -37,14 +37,14 @@ const employees: IEmployee[] = [
     id: 2,
     name: "Simas2",
     lastName: "Bakus2",
-    position: "Developer2",
+    position: "Tester",
     defaultWeek: {
       id: 2,
       employeeId: 2,
       monday: "P",
-      tuesday: "8.0 12.0 13.0 17.0",
-      wednesday: "8.0 12.0 13.0 17.0",
-      thursday: "8.0 12.0 13.0 17.0",
+      tuesday: "P",
+      wednesday: "10.0 14.0 15.0 18.0",
+      thursday: "P",
       friday: "P",
       saturday: "P",
       sunday: "P"

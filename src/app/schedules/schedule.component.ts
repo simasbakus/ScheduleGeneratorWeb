@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EmployeesService } from '../employees/services/employees.service';
+import { IEmployee } from '../models/employee.model';
 import { ISchedule } from '../models/schedule.model';
 import { SchedulesService } from './services/schedules.service';
 
@@ -9,14 +9,14 @@ import { SchedulesService } from './services/schedules.service';
     styleUrls: ['./schedule.component.css']
   })
 export class ScheduleComponent {
+  selectedEmployee!: IEmployee
   schedule: ISchedule | undefined;
   startColumn:number = 0;
 
-  constructor(private schedulesService:SchedulesService, private route:ActivatedRoute, private employeesService:EmployeesService) { }
+  constructor(private schedulesService:SchedulesService, public route:ActivatedRoute) { }
 
-  ngOnInit() {
-    this.schedule = this.schedulesService.RetrieveEmployeeSchedule(+this.route.snapshot.params['employeeId'], this.route.snapshot.params['month']);
-    
+  reloadSchedule(employeeId: number) {
+    this.schedule = this.schedulesService.RetrieveEmployeeSchedule(employeeId, this.route.snapshot.params['month']);
     this.startColumn = GetFirstDayColumnNr(this.schedule);
   }
 }
@@ -31,11 +31,11 @@ function GetFirstDayColumnNr(schedule:ISchedule | undefined): number {
 }
 
 const weekdayToNumber: { [name: string]: number } = {
-  Monday: 1,
-  Tuesday: 2,
-  Wednesday: 3,
-  Thursday: 4,
-  Friday: 5,
-  Saturday: 6,
-  Sunday: 7
+  'Monday': 1,
+  'Tuesday': 2,
+  'Wednesday': 3,
+  'Thursday': 4,
+  'Friday': 5,
+  'Saturday': 6,
+  'Sunday': 7
 }

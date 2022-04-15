@@ -1,5 +1,7 @@
-<div class="dropdown">
-    <h3>
-        {{selectedEmployee?.name}}
-    </h3>
-</div>
+<form [formGroup]="dropdownForm" >
+    <select formControlName="employeeId" (change)="emitEmployeeId()" class="dropdown">
+        <option *ngFor="let employee of employees" [ngValue]="employee.id">
+            {{employee.name}} {{employee.lastName}} {{employee.position}}
+        </option>
+    </select>
+</form>

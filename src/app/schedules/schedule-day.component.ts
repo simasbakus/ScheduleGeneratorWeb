@@ -5,12 +5,14 @@ import { IScheduleDay } from "../models/schedule.model";
     selector: 'schedule-day',
     template: `
         <div class="day-cell">
+          <!-- <p>{{day?.day}}</p> -->
           <input type="text" [value]="day?.schedule">
         <div>
     `,
     styles: [`
       .day-cell{
         height: 4.5rem;
+        /* border: red solid 1px; */
       }
       .day-cell input{
         text-align: center;

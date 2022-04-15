@@ -8,6 +8,6 @@ export const AppRoutes:Routes = [
     { path: 'schedules', component: SchedulesListComponent },
     { path: 'employees', component: EmployeesListComponent },
     { path: 'employees/:id', component: EmployeeComponent },
-    { path: 'schedule/:month/:employeeId', component: ScheduleComponent },
+    { path: 'schedule/:month', component: ScheduleComponent },
     { path: '', redirectTo: '/schedules', pathMatch: 'full' }
 ]

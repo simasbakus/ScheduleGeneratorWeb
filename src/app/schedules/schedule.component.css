@@ -1,8 +1,8 @@
-.month {
-    margin-top: 30px
+.month h1 {
+    margin-top: 15px
 }
 .schedule-grid {
-    margin-top: 15px;
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
