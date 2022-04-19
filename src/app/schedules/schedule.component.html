@@ -3,7 +3,7 @@
         <h1>{{route.snapshot.params['month']}}</h1>
     </div>
     <employee-dropdown (employeeChangedEvent)="reloadSchedule($event)"></employee-dropdown>
-    <div class="schedule-grid">
+    <div class="schedule-grid" *ngIf="schedule !== undefined">
         <p>Monday</p>
         <p>Tuesday</p>
         <p>Wednesday</p>
@@ -14,4 +14,5 @@
         <schedule-day *ngFor="let day of schedule?.days" [day]="day" 
             [ngStyle]="{'grid-column-start': day.day===1 ? this.startColumn : 0}"></schedule-day>
     </div>
+    <!-- <p *ngFor="let day of schedule?.days">{{day.schedule}}</p> -->
 </div>

@@ -1,5 +1,5 @@
 <form [formGroup]="dropdownForm" >
-    <select formControlName="employeeId" (change)="emitEmployeeId()" class="dropdown">
+    <select formControlName="selectedEmployeeId" (change)="emitEmployeeId()" class="dropdown">
         <option *ngFor="let employee of employees" [ngValue]="employee.id">
             {{employee.name}} {{employee.lastName}} {{employee.position}}
         </option>

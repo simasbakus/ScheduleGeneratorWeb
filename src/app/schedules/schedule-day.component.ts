@@ -6,11 +6,11 @@ import { IScheduleDay } from "../models/schedule.model";
     template: `
         <div class="day-cell">
           <p>{{day?.day}}</p>
-          <input type="text" [value]="day?.schedule">
+          <input type="text" [(ngModel)]="day.schedule">
         <div>
     `,
     styleUrls: ['./schedule-day.component.css']
   })
 export class ScheduleDayComponent {
-  @Input() day:IScheduleDay | undefined
+  @Input() day!:IScheduleDay
 }

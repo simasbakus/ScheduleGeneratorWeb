@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 import { EmployeesService } from "../employees/services/employees.service";
 import { IEmployee } from "../models/employee.model";
 
@@ -10,21 +10,27 @@ import { IEmployee } from "../models/employee.model";
   })
 export class EmployeeDropdownComponent {
   @Output() employeeChangedEvent = new EventEmitter<number>();
-  dropdownForm!: FormGroup;
   employees: IEmployee[] = [];
+  dropdownForm!: FormGroup;
+  selectedEmployeeId!: FormControl;
 
-  constructor(private employeesService:EmployeesService, private fb: FormBuilder) { }
+  constructor(private employeesService:EmployeesService) { }
 
   ngOnInit() {
     this.employees = this.employeesService.RetrieveAllEmployees();
-    this.dropdownForm = this.fb.group({
-      employeeId: [this.employees[0].id]
-    });
+    this.initializeDropdownForm(this.employees[0].id);
 
     this.emitEmployeeId();
   }
 
   emitEmployeeId() {
-    this.employeeChangedEvent.emit(this.dropdownForm.controls['employeeId'].value);
+    this.employeeChangedEvent.emit(this.selectedEmployeeId.value);
+  }
+
+  initializeDropdownForm(defaultValue: number) {
+    this.selectedEmployeeId = new FormControl(defaultValue)
+    this.dropdownForm = new FormGroup({
+      selectedEmployeeId: this.selectedEmployeeId
+    })
   }
 }

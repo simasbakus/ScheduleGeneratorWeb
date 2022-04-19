@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ISchedule } from '../models/schedule.model';
 import { SchedulesService } from './services/schedules.service';
 
 @Component({
@@ -12,8 +11,8 @@ import { SchedulesService } from './services/schedules.service';
           <h2>
             Generated Schedules
           </h2>
-          <div *ngFor="let schedule of schedules" class="schedules-list-element" [routerLink]="['/schedule', schedule.month]">
-            <h3>Schedule for {{schedule.month}}</h3>
+          <div *ngFor="let month of monthsSchedules" class="schedules-list-element" [routerLink]="['/schedule', month]">
+            <h3>Schedule for {{month}}</h3>
           </div>
         </div>
       </div>
@@ -48,11 +47,11 @@ import { SchedulesService } from './services/schedules.service';
     `]
   })
 export class SchedulesListComponent {
-  schedules:ISchedule[] = []
+  monthsSchedules:any = []
   
   constructor(private schedulesServices: SchedulesService) { }
   
   ngOnInit() {
-    this.schedules = this.schedulesServices.RetrieveAllSchedules()
+    this.monthsSchedules = [... new Set(this.schedulesServices.RetrieveAllSchedules().map(s => s.month))];
   }
 }
