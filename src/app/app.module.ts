@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { ScheduleAppComponent } from './schedule-app.component';
 import { LoginComponent } from './login/login.component';
@@ -33,7 +34,8 @@ import { AppRoutes } from './routes';
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     EmployeesService,

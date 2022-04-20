@@ -17,10 +17,11 @@ export class EmployeeDropdownComponent {
   constructor(private employeesService:EmployeesService) { }
 
   ngOnInit() {
-    this.employees = this.employeesService.RetrieveAllEmployees();
-    this.initializeDropdownForm(this.employees[0].id);
-
-    this.emitEmployeeId();
+    this.employeesService.RetrieveAllEmployees().subscribe(data => {
+      this.employees = data;
+      this.initializeDropdownForm(this.employees[0].id);
+      this.emitEmployeeId();
+    });
   }
 
   emitEmployeeId() {

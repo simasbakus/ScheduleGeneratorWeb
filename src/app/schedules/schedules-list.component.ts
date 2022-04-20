@@ -52,6 +52,8 @@ export class SchedulesListComponent {
   constructor(private schedulesServices: SchedulesService) { }
   
   ngOnInit() {
-    this.monthsSchedules = [... new Set(this.schedulesServices.RetrieveAllSchedules().map(s => s.month))];
+    this.schedulesServices.RetrieveAllSchedules().subscribe(data => {
+      this.monthsSchedules = [... new Set(data.map(s => s.month))];
+    });
   }
 }

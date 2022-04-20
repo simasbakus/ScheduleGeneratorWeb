@@ -15,9 +15,11 @@ export class ScheduleComponent {
 
   constructor(private schedulesService:SchedulesService, public route:ActivatedRoute) { }
 
-  reloadSchedule(employeeId: number) {
-    this.schedule = this.schedulesService.RetrieveEmployeeSchedule(employeeId, this.route.snapshot.params['month']);
-    this.startColumn = GetFirstDayColumnNr(this.schedule);
+  loadSchedule(employeeId: number) {
+    this.schedulesService.RetrieveEmployeeSchedule(employeeId, this.route.snapshot.params['month']).subscribe(data => {
+      this.schedule = data;
+      this.startColumn = GetFirstDayColumnNr(this.schedule);
+    });
   }
 }
 

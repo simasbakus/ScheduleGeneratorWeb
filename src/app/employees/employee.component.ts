@@ -49,6 +49,6 @@ export class EmployeeComponent {
   }
 
   ngOnInit() {
-    this.employee = this.employeeService.RetrieveEmployee(+this.route.snapshot.params['id'])
+    this.employeeService.RetrieveEmployee(+this.route.snapshot.params['id']).subscribe(data => this.employee = data);
   }
 }

@@ -2,7 +2,7 @@
     <div class="month">
         <h1>{{route.snapshot.params['month']}}</h1>
     </div>
-    <employee-dropdown (employeeChangedEvent)="reloadSchedule($event)"></employee-dropdown>
+    <employee-dropdown (employeeChangedEvent)="loadSchedule($event)"></employee-dropdown>
     <div class="schedule-grid" *ngIf="schedule !== undefined">
         <p>Monday</p>
         <p>Tuesday</p>

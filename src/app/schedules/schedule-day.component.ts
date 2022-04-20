@@ -5,7 +5,7 @@ import { IScheduleDay } from "../models/schedule.model";
     selector: 'schedule-day',
     template: `
         <div class="day-cell">
-          <p>{{day?.day}}</p>
+          <p>{{day.day}}</p>
           <input type="text" [(ngModel)]="day.schedule">
         <div>
     `,
