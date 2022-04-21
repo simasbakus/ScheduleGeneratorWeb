@@ -12,18 +12,20 @@
 }
 .schedules-list-element { 
     display: flex; 
+    align-items: center;
     column-gap: 10px;
     border-bottom: black solid 2px;
     margin: 5px 0; 
     cursor: pointer;
     width: 40%;
+    padding: 0 5px;
 }
 .schedules-list-element h3 { 
-    padding: 5px; 
     width: 100%;
 }
 .schedules-list-element button { 
     padding: 5px 10px;
+    margin: 5px 0;
 }
 .schedules-list-element:hover { 
     background-color: #bbb 
