@@ -9,10 +9,10 @@ export class EmployeesService {
   constructor(private http: HttpClient) {}
 
   RetrieveAllEmployees():Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>("https://localhost:7075/api/Employees");
+    return this.http.get<IEmployee[]>("https://localhost:5001/api/Employees");
   }
 
   RetrieveEmployee(id:number):Observable<IEmployee>{
-    return this.http.get<IEmployee>(`https://localhost:7075/api/Employees/${id}`);
+    return this.http.get<IEmployee>(`https://localhost:5001/api/Employees/${id}`);
   }
 }

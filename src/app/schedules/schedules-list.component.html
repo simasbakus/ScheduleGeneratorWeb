@@ -1,0 +1,13 @@
+<div>
+    <div class="generate-schedule">
+        <button>Generate new Schedule</button>
+    </div>
+    <div class="schedules-list">
+        <h2>Generated Schedules</h2>
+        <div *ngFor="let month of monthsSchedules" class="schedules-list-element">
+            <h3 [routerLink]="['/schedule', month]">Schedule for {{month}}</h3>
+            <button>Download</button>
+            <button (click)="deleteSchedule(month)">Delete</button>
+        </div>
+    </div>
+</div>
